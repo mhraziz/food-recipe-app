@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.recipe {
+    border-radius: 20px; /* Smooth, rounded corners */
+    background: rgba(255, 255, 255, 0.15); /* Translucent white for glass effect */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2); /* Softer shadow with more contrast */
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 40%;
+    max-width: 100%;
+    padding: 25px; /* Slightly more padding for breathing room */
+    font-family: 'Lobster', cursive;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smoother, longer transitions */
+    position: relative; /* For additional hover effects */
+    overflow: hidden; /* Ensures child elements don't overflow */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Soft border for the glass look */
+}
+
+.recipe::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    z-index: 0;
+}
+
+.recipe:hover::before {
+    opacity: 1; /* Slight highlight overlay on hover */
+}
+
+.recipe:hover {
+    transform: scale(1.07); /* Enhanced zoom effect on hover */
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+.image {
+    border-radius: 15px;
+    margin: 0px 0px 20px 0px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.4s ease; /* Smooth image hover effect */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); /* Slight shadow under the image */
+    z-index: 1; /* Ensure image stays above hover effect */
+}
+
+.image:hover {
+    transform: scale(1.1); /* Slight image zoom on hover */
+}
+
+.recipe h1 {
+    font-size: 2rem; /* Larger, bolder heading for emphasis */
+    margin: 10px 0;
+    text-align: center;
+    color: #fff; /* Use white for contrast */
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.7); /* Subtle neon glow */
+    z-index: 1;
+}
+
+.recipe p {
+    font-size: 1.1rem; /* Slightly larger for readability */
+    margin: 10px 0;
+    text-align: center;
+    color: #eee; /* Light grey for softer contrast */
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .recipe {
+        min-width: 90%; /* Adjust to fit smaller screens */
+        padding: 20px; /* Reduce padding slightly */
+    }
+
+    .recipe h1 {
+        font-size: 1.5rem; /* Reduce font size for mobile */
+    }
+
+    .recipe p {
+        font-size: 1rem; /* Adjust paragraph text for readability */
+    }
+}
